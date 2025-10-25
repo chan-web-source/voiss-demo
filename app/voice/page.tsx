@@ -196,7 +196,7 @@ export default function VoicePage() {
         <div className="min-h-screen bg-[#ffffff] flex flex-col">
             <VoissHeader onMenuToggle={toggleSidebar} />
 
-            <div className="flex flex-1 relative">
+            <div className="flex flex-1">
                 <VoissPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
 
                 <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'} flex flex-col min-h-0 max-w-full overflow-hidden`}>
