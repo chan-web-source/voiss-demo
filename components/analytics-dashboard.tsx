@@ -187,7 +187,7 @@ export function AnalyticsDashboard({
                                 className="text-sm font-sans"
                                 style={{ color: "#5C5C5A" }}
                             >
-                                The Flex (100%)
+                                Voiss (100%)
                             </p>
                         </div>
                     </div>
@@ -287,7 +287,7 @@ export function AnalyticsDashboard({
                             className="text-2xl font-bold font-sans"
                             style={{ color: "#284E4C" }}
                         >
-                            The Flex
+                            Voiss
                         </div>
                         <p
                             className="text-xs font-sans"
@@ -782,7 +782,7 @@ export function AnalyticsDashboard({
                         className="text-sm font-sans"
                         style={{ color: "#5C5C5A" }}
                     >
-                        Review performance on The Flex platform
+                        Review performance on Voiss platform
                     </p>
                 </CardHeader>
                 <CardContent>
@@ -804,7 +804,7 @@ export function AnalyticsDashboard({
                                 className="text-sm font-medium mb-2 font-sans"
                                 style={{ color: "#333333" }}
                             >
-                                The Flex
+                                Voiss
                             </div>
                             <div className="flex items-center justify-center gap-1 mb-2">
                                 <Star

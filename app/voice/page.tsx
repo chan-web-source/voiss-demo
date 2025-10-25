@@ -3,9 +3,9 @@
 import { useState, useRef } from "react";
 
 export const dynamic = 'force-dynamic';
-import { FlexHeader } from "@/components/flex-header";
-import { FlexPanel } from "@/components/flex-panel";
-import { FlexFooter } from "@/components/flex-footer";
+import { VoissHeader } from "@/components/voiss-header";
+import { VoissPanel } from "@/components/voiss-panel";
+import { VoissFooter } from "@/components/voiss-footer";
 import { Button } from "@/components/ui/button";
 import { Upload } from "lucide-react";
 import { mockAudioData } from "../../lib/mock";
@@ -192,14 +192,14 @@ export default function VoicePage() {
     const rows = [...originalRows, ...uploadedAudios];
 
     return (
-        <div className="min-h-screen bg-[#FFFDF6]">
-            <FlexHeader onMenuToggle={toggleSidebar} />
+        <div className="min-h-screen bg-[#f8f9fa] flex flex-col">
+            <VoissHeader onMenuToggle={toggleSidebar} />
 
-            <div className="flex">
-                <FlexPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+            <div className="flex flex-1">
+                <VoissPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
 
-                <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'}`}>
-                    <div className="bg-[#fffdf6] shadow-lg">
+                <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'} flex flex-col`}>
+                    <div className="bg-white shadow-lg">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                                 <div>
@@ -227,7 +227,7 @@ export default function VoicePage() {
                         </div>
                     </div>
 
-                    <div className="bg-[#fffdf6]">
+                    <div className="bg-white flex-1">
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                                 <div className="px-6 py-4 flex items-center justify-between">
@@ -301,7 +301,7 @@ export default function VoicePage() {
                         </div>
                     </div>
 
-                    <FlexFooter />
+                    <VoissFooter />
                 </div>
             </div>
         </div>

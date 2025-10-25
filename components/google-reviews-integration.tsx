@@ -60,7 +60,7 @@ export function GoogleReviewsIntegration({ onReviewsImported }: GoogleReviewsInt
         <CardContent className="space-y-4">
           <div className="flex gap-2">
             <Input
-              placeholder="Search for property (e.g., 'Flex Living Shoreditch London')"
+              placeholder="Search for property (e.g., 'Voiss Living Shoreditch London')"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSearch()}

@@ -7,11 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { HEADER_MOCK_DATA } from "@/lib/mock/header-mock-data";
 
-interface FlexHeaderProps {
+interface VoissHeaderProps {
     onMenuToggle: () => void;
 }
 
-export function FlexHeader({ onMenuToggle }: FlexHeaderProps) {
+export function VoissHeader({ onMenuToggle }: VoissHeaderProps) {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
     return (

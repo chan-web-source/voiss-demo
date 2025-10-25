@@ -4,7 +4,7 @@
 export const HEADER_MOCK_DATA = {
  logo: {
   src: "https://theflex.global/_next/image?url=https%3A%2F%2Flsmvmmgkpbyqhthzdexc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fwebsite%2FUploads%2FWhite_V3%2520Symbol%2520%26%2520Wordmark.png&w=256&q=75",
-  alt: "Flex Living",
+  alt: "Voiss Living",
   width: 120,
   height: 48,
   className: "h-8 w-auto"

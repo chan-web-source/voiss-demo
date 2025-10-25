@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 export const dynamic = 'force-dynamic';
-import { FlexHeader } from "@/components/flex-header";
-import { FlexPanel } from "@/components/flex-panel";
-import { FlexFooter } from "@/components/flex-footer";
+import { VoissHeader } from "@/components/voiss-header";
+import { VoissPanel } from "@/components/voiss-panel";
+import { VoissFooter } from "@/components/voiss-footer";
 import { Button } from "@/components/ui/button";
 import {
     Select,
@@ -118,11 +118,11 @@ export default function ManagerDashboard() {
 
     return (
         <div className="min-h-screen bg-[#FFFDF6]">
-            <FlexHeader onMenuToggle={toggleSidebar} />
+            <VoissHeader onMenuToggle={toggleSidebar} />
 
             <div className="flex">
                 {/* Sidebar */}
-                <FlexPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+                <VoissPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
 
                 {/* Main Content */}
                 <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'
@@ -365,7 +365,7 @@ export default function ManagerDashboard() {
                         onReviewToggle={handleReviewToggle}
                     />
 
-                    <FlexFooter />
+                    <VoissFooter />
                 </div>
             </div>
         </div>

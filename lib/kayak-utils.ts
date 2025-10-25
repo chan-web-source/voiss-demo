@@ -24,7 +24,7 @@ export const convertKayakReviewToInternal = (kayakReview: KayakReview, propertyN
   guestName: kayakReview.author,
   rating,
   comment,
-  channel: 'The Flex', // Map to our single platform
+  channel: 'Voiss', // Map to our single platform
   category: 'Cleanliness', // Default category, can be enhanced later
   submittedAt: new Date().toISOString(), // Use current date as fallback
   isApproved,

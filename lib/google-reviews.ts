@@ -1,4 +1,4 @@
-// Google Places API integration for Flex Living Reviews Dashboard
+// Google Places API integration for Voiss Living Reviews Dashboard
 // Note: This is an exploration implementation based on Google Places API (New)
 
 export interface GoogleReview {

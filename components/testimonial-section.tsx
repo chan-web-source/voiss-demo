@@ -27,7 +27,7 @@ export function TestimonialSection() {
           {/* Testimonial text */}
           <blockquote className="text-lg md:text-xl text-gray-700 italic leading-relaxed mb-8 max-w-3xl mx-auto">
             "One of the few companies in London that understand our needs. We needed good quality, furnished apartments
-            for monthly rental, and The Flex team has always been to the top of our expectations."
+            for monthly rental, and Voiss team has always been to the top of our expectations."
           </blockquote>
 
           {/* Author */}

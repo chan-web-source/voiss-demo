@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Voiss - Flexible Accommodation & Property Management",
+    title: "Voiss - Voissible Accommodation & Property Management",
     description:
         "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases for tenants, guaranteed rent for landlords, and scalable housing solutions for businesses.",
     keywords:
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         telephone: false,
     },
     openGraph: {
-        title: "Voiss - Flexible Accommodation & Property Management",
+        title: "Voiss - Voissible Accommodation & Property Management",
         description:
             "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases.",
         url: "https://theflex.global",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Voiss - Flexible Accommodation & Property Management",
+        title: "Voiss - Voissible Accommodation & Property Management",
         description:
             "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases.",
         images: ["/modern-apartment-bedroom-with-natural-light.jpg"],

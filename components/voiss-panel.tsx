@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, LayoutDashboard, MessageSquare, MessageCircle, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-interface FlexPanelProps {
+interface VoissPanelProps {
     isOpen: boolean;
     onToggle: () => void;
 }
 
-export function FlexPanel({ isOpen, onToggle }: FlexPanelProps) {
+export function VoissPanel({ isOpen, onToggle }: VoissPanelProps) {
     const [isExpanded, setIsExpanded] = useState(true);
 
     // On mobile, always show expanded when open

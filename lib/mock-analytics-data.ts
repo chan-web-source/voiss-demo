@@ -24,7 +24,7 @@ export const mockAnalyticsData: ReviewAnalytics = {
   value: 8.0
  },
  channelBreakdown: {
-  "The Flex": 108
+  "Voiss": 108
  },
  monthlyTrends: [
   { month: "Jul", count: 8, averageRating: 4.2 },

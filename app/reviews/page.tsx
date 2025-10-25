@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 
 export const dynamic = 'force-dynamic';
-import { FlexHeader } from "@/components/flex-header";
-import { FlexPanel } from "@/components/flex-panel";
-import { FlexFooter } from "@/components/flex-footer";
+import { VoissHeader } from "@/components/voiss-header";
+import { VoissPanel } from "@/components/voiss-panel";
+import { VoissFooter } from "@/components/voiss-footer";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Download } from "lucide-react";
 import ReviewsFilters from "./filters/page";
@@ -152,11 +152,11 @@ export default function ReviewsPage() {
 
   return (
     <div className="min-h-screen bg-[#FFFDF6]">
-      <FlexHeader onMenuToggle={toggleSidebar} />
+      <VoissHeader onMenuToggle={toggleSidebar} />
 
       <div className="flex">
         {/* Sidebar */}
-        <FlexPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
+        <VoissPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
 
         {/* Main Content */}
         <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen
@@ -238,7 +238,7 @@ export default function ReviewsPage() {
             </div>
           </div>
 
-          <FlexFooter />
+          <VoissFooter />
         </div>
       </div>
     </div>
