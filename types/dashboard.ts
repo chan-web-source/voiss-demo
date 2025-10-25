@@ -43,7 +43,7 @@ export interface ReviewData {
  guestName: string;
  rating: number;
  comment: string;
- channel: 'The Flex';
+ channel: 'Voiss';
  category: 'Cleanliness' | 'Location' | 'Value' | 'Communication' | 'Check-in';
  submittedAt: string;
  isApproved: boolean;

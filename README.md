@@ -1,4 +1,4 @@
-# The Flex - Property Management Dashboard
+# Voiss - Property Management Dashboard
 
 A comprehensive property management dashboard built with Next.js, React, and TypeScript. This application provides tools for managing properties, reviews, and analytics for property managers.
 

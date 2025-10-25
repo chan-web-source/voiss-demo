@@ -6,15 +6,14 @@ import { useEffect, useRef, useState } from "react"
 interface AudioVisualizerProps {
  mp3Url: string
  isPlaying: boolean
+ audioElement?: HTMLAudioElement | null
 }
 
-export function AudioVisualizer({ mp3Url, isPlaying }: AudioVisualizerProps) {
+export function AudioVisualizer({ mp3Url, isPlaying, audioElement }: AudioVisualizerProps) {
  const canvasRef = useRef<HTMLCanvasElement>(null)
  const audioContextRef = useRef<AudioContext | null>(null)
  const analyserRef = useRef<AnalyserNode | null>(null)
- const audioElementRef = useRef<HTMLAudioElement | null>(null)
  const animationIdRef = useRef<number | null>(null)
- // const sourceRef = useRef<MediaElementAudioSourceNode | null>(null)
  const sourceRef = useRef<any>(null)
 
  useEffect(() => {
@@ -27,14 +26,12 @@ export function AudioVisualizer({ mp3Url, isPlaying }: AudioVisualizerProps) {
 
  // Handle play/pause based on parent state
  useEffect(() => {
-  if (!audioElementRef.current) return
-
-  if (isPlaying && mp3Url) {
+  if (isPlaying && mp3Url && audioElement) {
    handlePlay()
   } else {
    handlePause()
   }
- }, [isPlaying, mp3Url])
+ }, [isPlaying, mp3Url, audioElement])
 
  const initAudioContext = () => {
   if (audioContextRef.current && sourceRef.current) return
@@ -44,8 +41,8 @@ export function AudioVisualizer({ mp3Url, isPlaying }: AudioVisualizerProps) {
    const analyser = audioContext.createAnalyser()
    analyser.fftSize = 256
 
-   if (!sourceRef.current && audioElementRef.current) {
-    const source = audioContext.createMediaElementSource(audioElementRef.current)
+   if (!sourceRef.current && audioElement) {
+    const source = audioContext.createMediaElementSource(audioElement)
     source.connect(analyser)
     analyser.connect(audioContext.destination)
     sourceRef.current = source
@@ -112,7 +109,7 @@ export function AudioVisualizer({ mp3Url, isPlaying }: AudioVisualizerProps) {
  }
 
  const handlePlay = async () => {
-  if (!audioElementRef.current) return
+  if (!audioElement) return
 
   try {
    initAudioContext()
@@ -121,32 +118,20 @@ export function AudioVisualizer({ mp3Url, isPlaying }: AudioVisualizerProps) {
     await audioContextRef.current.resume()
    }
 
-   await audioElementRef.current.play()
+   // Don't play the audio here - let the parent handle it
    draw()
   } catch (error) {
-   console.error("[v0] Error playing audio:", error)
+   console.error("[v0] Error initializing visualizer:", error)
   }
  }
 
  const handlePause = () => {
-  if (!audioElementRef.current) return
-
-  audioElementRef.current.pause()
-  if (animationIdRef.current) {
-   cancelAnimationFrame(animationIdRef.current)
-  }
- }
-
- const handleAudioEnd = () => {
   if (animationIdRef.current) {
    cancelAnimationFrame(animationIdRef.current)
   }
  }
 
  return (
-  <>
-   <audio ref={audioElementRef} src={mp3Url} onEnded={handleAudioEnd} crossOrigin="anonymous" />
-   <canvas ref={canvasRef} width={200} height={40} />
-  </>
+  <canvas ref={canvasRef} width={200} height={40} />
  )
 }
