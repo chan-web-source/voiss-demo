@@ -11,6 +11,7 @@ import { Upload } from "lucide-react";
 import { mockAudioData } from "../../lib/mock";
 import { AudioVisualizer } from "@/components/audio-visualizer";
 import { useToast } from "@/hooks/use-toast";
+import { AudioRecordingsTable } from "./table/page";
 
 // Audio file paths - using public URLs instead of imports
 const goodJobAudio = '/good-job.mp3';
@@ -195,16 +196,17 @@ export default function VoicePage() {
         <div className="min-h-screen bg-[#ffffff] flex flex-col">
             <VoissHeader onMenuToggle={toggleSidebar} />
 
-            <div className="flex flex-1">
+            <div className="flex flex-1 relative">
                 <VoissPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
 
-                <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'} flex flex-col`}>
-                    <div className="bg-white shadow-lg">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'} flex flex-col min-h-0 max-w-full overflow-hidden`}>
+                    <div className="bg-white">
+                        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                                 <div>
-                                    <h1 className="text-2xl font-bold text-gray-900">Audio Recordings</h1>
+                                    <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Audio Recordings (Demo purpose)</h1>
                                     <p className="text-sm text-gray-600 mt-1">Recent audio recordings</p>
+                                    <p className="text-sm text-gray-600">( By: Lucky Chan )</p>
                                 </div>
                                 <div className="flex items-center gap-3 mt-4 sm:mt-0">
                                     <Button
@@ -227,75 +229,34 @@ export default function VoicePage() {
                         </div>
                     </div>
 
-                    <div className="bg-white flex-1">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                <div className="px-6 py-4 flex items-center justify-between">
-                                    <div>
-                                        <h3 className="text-lg font-semibold text-gray-900">Audio Recordings</h3>
-                                        <p className="text-sm text-gray-600">Recent audio recordings and voice messages</p>
-                                    </div>
-                                    <div className="flex items-center">
-                                        {playingAudio !== null && (
-                                            <AudioVisualizer
-                                                mp3Url={rows.find(row => row.id.toString() === playingAudio)?.voicePath || ''}
-                                                isPlaying={playingAudio !== null}
-                                                audioElement={currentAudioRef.current}
-                                            />
-                                        )}
+                    <div className="bg-white flex-1 overflow-hidden">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                            <div className="bg-white rounded-lg border border-gray-200 shadow-lg shadow-gray-200/50 overflow-hidden">
+                                <div className="px-6 py-4">
+                                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                        <div>
+                                            <h3 className="text-lg font-semibold text-gray-900">Audio Recordings</h3>
+                                            <p className="text-sm text-gray-600">Recent audio recordings and voice messages</p>
+                                            <p className="text-sm text-gray-600">( By: Lucky Chan )</p>
+
+                                        </div>
+                                        <div className="flex items-center mt-4 sm:mt-0">
+                                            {playingAudio !== null && (
+                                                <AudioVisualizer
+                                                    mp3Url={rows.find(row => row.id.toString() === playingAudio)?.voicePath || ''}
+                                                    isPlaying={playingAudio !== null}
+                                                    audioElement={currentAudioRef.current}
+                                                />
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full">
-                                        <thead className="bg-gray-50">
-                                            <tr>
-                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Speaker</th>
-                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
-                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timestamp</th>
-                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Audio</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="bg-white divide-y divide-gray-200">
-                                            {rows.map((r: any) => (
-                                                <tr key={r.id} className="hover:bg-gray-50">
-                                                    <td className="px-6 py-4 whitespace-nowrap">
-                                                        <div className="text-sm font-medium text-gray-900">{r.speaker}</div>
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                        {formatDuration(r.durationSeconds)}
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                        {new Date(r.timestamp).toLocaleString()}
-                                                    </td>
-                                                    <td className="px-6 py-4 whitespace-nowrap">
-                                                        {r.voicePath ? (
-                                                            <Button
-                                                                variant="outline"
-                                                                size="sm"
-                                                                onClick={() => playAudio(r.voicePath, r.id.toString())}
-                                                                disabled={playingAudio === r.id.toString()}
-                                                                className="voiss-button disabled:opacity-50"
-                                                            >
-                                                                {playingAudio === r.id.toString() ? (
-                                                                    <>
-                                                                        <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse mr-2"></div>
-                                                                        Playing...
-                                                                    </>
-                                                                ) : (
-                                                                    <>
-                                                                        🔊 Play
-                                                                    </>
-                                                                )}
-                                                            </Button>
-                                                        ) : (
-                                                            <span className="text-sm text-gray-400 italic">No audio</span>
-                                                        )}
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <AudioRecordingsTable
+                                    rows={rows}
+                                    playingAudio={playingAudio}
+                                    onPlayAudio={playAudio}
+                                    formatDuration={formatDuration}
+                                />
                             </div>
 
                         </div>
