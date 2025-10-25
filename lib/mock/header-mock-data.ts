@@ -18,8 +18,8 @@ export const HEADER_MOCK_DATA = {
   code: "GBP"
  },
  user: {
-  name: "Admin",
-  email: "admin-chan-web@theflex.global",
+  name: "Trail User",
+  email: "chan.web.work@gmail.com",
   avatar: {
    className: "w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
   }

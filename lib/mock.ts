@@ -751,41 +751,20 @@ export const mockAudioData = {
     "data": [
         {
             "id": 1,
-            "speaker": "John Doe",
-            "durationSeconds": 3,
-            "timestamp": new Date("2025-10-21T09:30:00.000Z"),
+            "speaker": "Emily (Sample)",
+            "durationSeconds": 4,
+            "timestamp": new Date("2025-10-25T22:30:00.000Z"),
             "voicePath": "/good-job.mp3"
         },
         {
             "id": 2,
-            "speaker": "Ava Smith",
-            "durationSeconds": 2,
-            "timestamp": new Date("2025-10-22T14:10:00.000Z"),
+            "speaker": "Ava Smith (Sample)",
+            "durationSeconds": 3,
+            "timestamp": new Date("2025-10-25T22:30:10.000Z"),
             "voicePath": "/you-missed.mp3"
         },
-        {
-            "id": 3,
-            "speaker": "Liam Nguyen",
-            "durationSeconds": 210,
-            "timestamp": new Date("2025-10-23T08:05:00.000Z"),
-            "voicePath": "/good-job.mp3"
-        },
-        {
-            "id": 4,
-            "speaker": "Olivia Brown",
-            "durationSeconds": 30,
-            "timestamp": new Date("2025-10-24T18:20:00.000Z"),
-            "voicePath": "/you-missed.mp3"
-        },
-        {
-            "id": 5,
-            "speaker": "Noah Patel",
-            "durationSeconds": 95,
-            "timestamp": new Date("2025-10-25T11:45:00.000Z"),
-            "voicePath": "/good-job.mp3"
-        }
     ],
-    "count": 5,
+    "count": 2,
     "filters": {
         "speaker": null,
         "minDuration": null,
