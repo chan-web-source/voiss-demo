@@ -1,19 +1,17 @@
-# Voiss - Property Management Dashboard
+# Voiss AI - Audio Playback Demo
 
-A comprehensive property management dashboard built with Next.js, React, and TypeScript. This application provides tools for managing properties, reviews, and analytics for property managers.
-
-## Documentation
- https://docs.google.com/document/d/1CQVAYaGpL29SC5jjLWi867dvtUdKlLmt4iTkHiof3xQ/edit?usp=sharing
+A modern audio management and playback application built with Next.js, React, and TypeScript. This demo showcases voice AI capabilities with audio upload, playback, and visualization features.
 
 ## Website
  https://admin-portal-flex.onrender.com/
 
 ## Features
 
-- **Dashboard Overview**: Comprehensive property management dashboard with analytics
-- **Review Management**: Moderate and approve guest reviews
-- **Analytics**: Detailed performance metrics and insights
-- **API Integration**: Fetch and display reviews from Kayak API
+- **Audio Upload**: Upload MP3 files with 30-second duration limit
+- **Audio Playback**: Play uploaded and sample audio files with visual feedback
+- **Audio Visualization**: Real-time audio waveform visualization during playback
+- **Responsive Design**: Mobile and tablet optimized interface
+- **Voice AI Demo**: Showcase voice AI capabilities with audio processing
 
 ## Prerequisites
 
@@ -109,19 +107,27 @@ npm run build && npm start
 ## Project Structure
 
 ```
-the-flex/
+voiss-demo/
 ├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   ├── dashboard/         # Dashboard pages
-│   ├── reviews/          # Reviews management
-├── components/           # Reusable components
-│   ├── ui/              # UI components (shadcn/ui)
-│   └── ...
-├── hooks/               # Custom React hooks
-├── lib/                 # Utility functions
-├── types/               # TypeScript type definitions
-├── public/              # Static assets
-└── styles/              # Global styles
+│   ├── voice/             # Voice AI demo pages
+│   │   ├── table/         # Audio recordings table component
+│   │   └── page.tsx       # Main voice demo page
+│   ├── chat/              # Chat interface (coming soon)
+│   └── layout.tsx         # App layout
+├── components/            # Reusable components
+│   ├── voiss-header.tsx   # Application header
+│   ├── voiss-panel.tsx    # Navigation sidebar
+│   ├── voiss-footer.tsx   # Application footer
+│   ├── audio-visualizer.tsx # Audio waveform visualization
+│   └── ui/                # UI components (shadcn/ui)
+├── hooks/                 # Custom React hooks
+│   └── use-toast.ts       # Toast notifications
+├── lib/                   # Utility functions
+│   └── mock.ts            # Sample audio data
+├── public/                # Static assets
+│   ├── good-job.mp3       # Sample audio files
+│   └── you-missed.mp3
+└── styles/                # Global styles
 ```
 
 ## Key Technologies
@@ -130,22 +136,36 @@ the-flex/
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
-- **Charts**: Recharts
+- **Audio Processing**: Web Audio API
 - **Icons**: Lucide React
 - **State Management**: React Hooks
+- **Audio Visualization**: Canvas-based waveform rendering
 
-## API Integration
+## Audio Features
 
-### Kayak Reviews API
-The application integrates with Kayak's review API to fetch and display external reviews:
+### Audio Upload & Playback
+The application supports MP3 audio file upload and playback with the following features:
 
 ```typescript
-// Example usage
-const kayakReviews = await fetchReviews({
-  objectId: '12222',
-  amount: 10,
-  reviewSources: 'BOOKING,AGODA,PRICELINE,HOTELSCOMBINED,KAYAK'
-});
+// Audio upload with duration validation
+const handleFileUpload = async (file: File) => {
+  const duration = await getAudioDuration(file);
+  if (duration > 30) {
+    toast({
+      title: "Upload failed",
+      description: "Audio file cannot exceed 30 seconds"
+    });
+    return;
+  }
+  // Process audio file...
+};
+
+// Audio playback with visualization
+const playAudio = (audioPath: string, audioId: string) => {
+  const audio = new Audio(audioPath);
+  // Setup audio context for visualization
+  // Play audio with visual feedback
+};
 ```
 
 ## Development Guidelines
@@ -250,15 +270,15 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Support
 
-For support, email support@theflex.com or create an issue in the repository.
+For support, email support@voiss.ai or create an issue in the repository.
 
 ## Changelog
 
 ### v1.0.0
 - Initial release
-- Dashboard with property management
-- Review management system
-- Kayak API integration
-- Responsive design
+- Voice AI audio playback demo
+- Audio upload and visualization
+- Mobile responsive design
+- Real-time audio waveform rendering
 
 ---

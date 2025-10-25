@@ -15,7 +15,7 @@ export function VoissHeader({ onMenuToggle }: VoissHeaderProps) {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
     return (
-        <header className="bg-gradient-to-r from-[#171513] to-[#272019] sticky top-0 z-50">
+        <header className="bg-gradient-to-r from-[#374151] to-[#1f2937] sticky top-0 z-50">
             <div className="mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Left side - Menu Button and Logo */}
@@ -32,7 +32,7 @@ export function VoissHeader({ onMenuToggle }: VoissHeaderProps) {
 
                         {/* Logo */}
                         <Link href="/" className="flex items-center space-x-2 text-2xl font-bold bg-gradient-to-r from-[#fecb64] to-[#f08755] bg-clip-text text-transparent">
-                            VOISS
+                            Voiss AI
                         </Link>
                     </div>
 

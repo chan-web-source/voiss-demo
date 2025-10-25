@@ -753,14 +753,14 @@ export const mockAudioData = {
             "id": 1,
             "speaker": "Emily (Sample)",
             "durationSeconds": 4,
-            "timestamp": new Date("2025-10-25T22:30:00.000Z"),
+            "timestamp": new Date("2025-10-25T08:30:00.000Z"),
             "voicePath": "/good-job.mp3"
         },
         {
             "id": 2,
             "speaker": "Ava Smith (Sample)",
             "durationSeconds": 3,
-            "timestamp": new Date("2025-10-25T22:30:10.000Z"),
+            "timestamp": new Date("2025-10-25T08:08:10.000Z"),
             "voicePath": "/you-missed.mp3"
         },
     ],
