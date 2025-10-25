@@ -112,15 +112,15 @@ export default function VoicePage() {
 
             // Show success toast
             toast({
-                title: "上传成功",
-                description: `音频文件 "${file.name}" 已成功上传`,
+                title: "Upload successful",
+                description: `Audio file "${file.name}" has been successfully uploaded`,
                 duration: 3000,
             });
         } catch (error) {
             console.error('Error processing audio file:', error);
             toast({
-                title: "上传失败",
-                description: "处理音频文件时出错，请重试",
+                title: "Upload failed",
+                description: "Error processing audio file, please try again",
                 variant: "destructive",
                 duration: 3000,
             });
@@ -192,7 +192,7 @@ export default function VoicePage() {
     const rows = [...originalRows, ...uploadedAudios];
 
     return (
-        <div className="min-h-screen bg-[#f8f9fa] flex flex-col">
+        <div className="min-h-screen bg-[#ffffff] flex flex-col">
             <VoissHeader onMenuToggle={toggleSidebar} />
 
             <div className="flex flex-1">
@@ -210,7 +210,7 @@ export default function VoicePage() {
                                     <Button
                                         variant="outline"
                                         onClick={handleUploadClick}
-                                        className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50"
+                                        className="voiss-button"
                                     >
                                         <Upload className="h-4 w-4 mr-2" />
                                         Upload MP3
@@ -274,7 +274,7 @@ export default function VoicePage() {
                                                                 size="sm"
                                                                 onClick={() => playAudio(r.voicePath, r.id.toString())}
                                                                 disabled={playingAudio === r.id.toString()}
-                                                                className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                                                                className="voiss-button disabled:opacity-50"
                                                             >
                                                                 {playingAudio === r.id.toString() ? (
                                                                     <>

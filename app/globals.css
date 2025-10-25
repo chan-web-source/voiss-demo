@@ -233,3 +233,29 @@ html {
     background-color: #ffffff;
     color: #020817;
 }
+
+/* Voiss brand gradient classes */
+.voiss-gradient {
+    background: linear-gradient(to right, #374151, #1f2937);
+    color: white;
+}
+
+.voiss-gradient-text {
+    background: linear-gradient(to right, #fecb64, #f08755);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.voiss-button {
+    background: linear-gradient(to right, #374151, #1f2937);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.voiss-button:hover {
+    background: linear-gradient(to right, #4b5563, #374151);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(55, 65, 81, 0.3);
+}

@@ -41,10 +41,10 @@ export function VoissPanel({ isOpen, onToggle }: VoissPanelProps) {
 
             {/* Sidebar */}
             <div className={`
-                fixed top-16 left-0 h-[calc(100vh-4rem)] bg-gradient-to-r from-[#171513] to-[#272019] z-50 transition-all duration-300 ease-in-out overflow-y-auto
+                fixed top-20 left-4 h-[calc(100vh-8rem)] bg-gradient-to-r from-[#374151] to-[#1f2937] z-50 transition-all duration-300 ease-in-out overflow-y-auto rounded-lg shadow-lg
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-                md:${isOpen ? 'translate-x-0' : '-translate-x-full'} md:fixed md:z-40 md:block md:h-[calc(100vh-4rem)] md:top-16
-                lg:${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:fixed lg:z-40 lg:block lg:h-[calc(100vh-4rem)] lg:top-16
+                md:${isOpen ? 'translate-x-0' : '-translate-x-full'} md:fixed md:z-40 md:block md:h-[calc(100vh-8rem)] md:top-20
+                lg:${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:fixed lg:z-40 lg:block lg:h-[calc(100vh-8rem)] lg:top-20
                 ${shouldShowExpanded ? 'w-64' : 'w-16'}
             `}>
                 <div className="flex flex-col h-full">
