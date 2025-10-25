@@ -6,31 +6,31 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "The Flex - Flexible Accommodation & Property Management",
+    title: "Voiss - Flexible Accommodation & Property Management",
     description:
         "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases for tenants, guaranteed rent for landlords, and scalable housing solutions for businesses.",
     keywords:
         "flexible accommodation, furnished apartments, property management, short-term rentals, corporate housing, flexible leases, London apartments",
-    authors: [{ name: "The Flex" }],
-    creator: "The Flex",
-    publisher: "The Flex",
+    authors: [{ name: "Voiss" }],
+    creator: "Voiss",
+    publisher: "Voiss",
     formatDetection: {
         email: false,
         address: false,
         telephone: false,
     },
     openGraph: {
-        title: "The Flex - Flexible Accommodation & Property Management",
+        title: "Voiss - Flexible Accommodation & Property Management",
         description:
             "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases.",
         url: "https://theflex.global",
-        siteName: "The Flex",
+        siteName: "Voiss",
         images: [
             {
                 url: "/modern-apartment-bedroom-with-natural-light.jpg",
                 width: 1200,
                 height: 630,
-                alt: "The Flex - Modern furnished apartment",
+                alt: "Voiss - Modern furnished apartment",
             },
         ],
         locale: "en_GB",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "The Flex - Flexible Accommodation & Property Management",
+        title: "Voiss - Flexible Accommodation & Property Management",
         description:
             "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases.",
         images: ["/modern-apartment-bedroom-with-natural-light.jpg"],

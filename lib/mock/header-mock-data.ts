@@ -10,12 +10,8 @@ export const HEADER_MOCK_DATA = {
   className: "h-8 w-auto"
  },
  language: {
-  country: "GB",
+  country: "TW",
   language: "English"
- },
- currency: {
-  symbol: "£",
-  code: "GBP"
  },
  user: {
   name: "Trail User",

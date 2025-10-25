@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function FlexFooter() {
     return (
-        <footer className="bg-[#284E4C] text-white">
+        <footer className="bg-gradient-to-r from-[#171513] to-[#272019] text-white mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Copyright and Links */}
                 <div className="text-center">
@@ -21,7 +21,7 @@ export function FlexFooter() {
                         </Link>
                     </div>
                     <p className="text-gray-200 text-sm mb-4">
-                        © 2025 The Flex. All rights reserved.
+                        © 2025 Voiss. All rights reserved.
                     </p>
                 </div>
             </div>

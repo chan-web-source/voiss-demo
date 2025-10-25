@@ -15,8 +15,8 @@ export function FlexHeader({ onMenuToggle }: FlexHeaderProps) {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
     return (
-        <header className="bg-[#1A4D4D] sticky top-0 z-50">
-            <div className=" mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="bg-gradient-to-r from-[#171513] to-[#272019] sticky top-0 z-50">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Left side - Menu Button and Logo */}
                     <div className="flex items-center space-x-4">
@@ -25,21 +25,14 @@ export function FlexHeader({ onMenuToggle }: FlexHeaderProps) {
                             variant="ghost"
                             size="sm"
                             onClick={onMenuToggle}
-                            className="text-white hover:text-gray-200 hover:bg-[#1e3a38] lg:hidden"
+                            className="text-white hover:text-gray-200 hover:bg-white/10 lg:hidden"
                         >
                             <Menu className="h-5 w-5" />
                         </Button>
 
                         {/* Logo */}
-                        <Link href="/" className="flex items-center space-x-2">
-                            <Image
-                                src={HEADER_MOCK_DATA.logo.src}
-                                alt={HEADER_MOCK_DATA.logo.alt}
-                                width={HEADER_MOCK_DATA.logo.width}
-                                height={HEADER_MOCK_DATA.logo.height}
-                                className={HEADER_MOCK_DATA.logo.className}
-                                priority
-                            />
+                        <Link href="/" className="flex items-center space-x-2 text-2xl font-bold bg-gradient-to-r from-[#fecb64] to-[#f08755] bg-clip-text text-transparent">
+                            VOISS
                         </Link>
                     </div>
 
@@ -51,10 +44,6 @@ export function FlexHeader({ onMenuToggle }: FlexHeaderProps) {
                                 <span className="font-semibold">{HEADER_MOCK_DATA.language.country}</span>
                                 <span>{HEADER_MOCK_DATA.language.language}</span>
                             </span>
-                            <span className="text-sm flex items-center space-x-1">
-                                <span>{HEADER_MOCK_DATA.currency.symbol}</span>
-                                <span>{HEADER_MOCK_DATA.currency.code}</span>
-                            </span>
                         </div>
 
                         {/* User Profile Dropdown */}
@@ -62,7 +51,7 @@ export function FlexHeader({ onMenuToggle }: FlexHeaderProps) {
                             <Button
                                 variant="ghost"
                                 onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
-                                className="text-white hover:text-gray-200 hover:bg-[#1e3a38] flex items-center space-x-2"
+                                className="text-white hover:text-gray-200 hover:bg-white/10 flex items-center space-x-2"
                             >
                                 <div className={HEADER_MOCK_DATA.user.avatar.className}>
                                     <User className="w-4 h-4" />
