@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const dynamic = 'force-dynamic';
 import { VoissHeader } from "@/components/voiss-header";
@@ -12,6 +12,7 @@ import { mockAudioData } from "../../lib/mock";
 import { AudioVisualizer } from "@/components/audio-visualizer";
 import { useToast } from "@/hooks/use-toast";
 import { AudioRecordingsTable } from "./table/page";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Audio file paths - using public URLs instead of imports
 const goodJobAudio = '/good-job.mp3';
@@ -24,7 +25,9 @@ function formatDuration(seconds: number) {
 }
 
 export default function VoicePage() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const isMobileHook = useIsMobile();
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Default to closed, will be updated in useEffect
     const [playingAudio, setPlayingAudio] = useState<string | null>(null);
     const [audioFiles] = useState([goodJobAudio, youMissedAudio]);
     const [uploadedAudios, setUploadedAudios] = useState<any[]>([]);
@@ -35,6 +38,11 @@ export default function VoicePage() {
         handleError?: () => void;
     }>({});
     const { toast } = useToast();
+
+    // Set initial sidebar state based on device type
+    useEffect(() => {
+        setIsSidebarOpen(!isMobileHook); // Mobile: false, Desktop: true
+    }, [isMobileHook]);
 
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
