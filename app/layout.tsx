@@ -6,11 +6,11 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "Voiss - Voissible Accommodation & Property Management",
+    title: "Voiss AI Demo",
     description:
-        "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases for tenants, guaranteed rent for landlords, and scalable housing solutions for businesses.",
+        "Voiss AI Demo",
     keywords:
-        "flexible accommodation, furnished apartments, property management, short-term rentals, corporate housing, flexible leases, London apartments",
+        "Voiss AI Demo",
     authors: [{ name: "Voiss" }],
     creator: "Voiss",
     publisher: "Voiss",
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
         telephone: false,
     },
     openGraph: {
-        title: "Voiss - Voissible Accommodation & Property Management",
+        title: "Voiss AI Demo",
         description:
-            "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases.",
-        url: "https://theflex.global",
+            "",
+        url: "https://voiss-demo.onrender.com/voice",
         siteName: "Voiss",
         images: [
             {
-                url: "/modern-apartment-bedroom-with-natural-light.jpg",
+                url: "/",
                 width: 1200,
                 height: 630,
-                alt: "Voiss - Modern furnished apartment",
+                alt: "Voiss",
             },
         ],
         locale: "en_GB",
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Voiss - Voissible Accommodation & Property Management",
+        title: "Voiss AI Demo",
         description:
-            "The future of flexible accommodation. Fully furnished, hotel-grade homes with flexible leases.",
-        images: ["/modern-apartment-bedroom-with-natural-light.jpg"],
+            "",
+        images: ["/"],
     },
     robots: {
         index: true,
