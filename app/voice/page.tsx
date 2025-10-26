@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const dynamic = 'force-dynamic';
 import { VoissHeader } from "@/components/voiss-header";
@@ -12,6 +12,7 @@ import { mockAudioData } from "../../lib/mock";
 import { AudioVisualizer } from "@/components/audio-visualizer";
 import { useToast } from "@/hooks/use-toast";
 import { AudioRecordingsTable } from "./table/page";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Audio file paths - using public URLs instead of imports
 const goodJobAudio = '/good-job.mp3';
@@ -24,7 +25,9 @@ function formatDuration(seconds: number) {
 }
 
 export default function VoicePage() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+    const isMobileHook = useIsMobile();
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Default to closed, will be updated in useEffect
     const [playingAudio, setPlayingAudio] = useState<string | null>(null);
     const [audioFiles] = useState([goodJobAudio, youMissedAudio]);
     const [uploadedAudios, setUploadedAudios] = useState<any[]>([]);
@@ -35,6 +38,11 @@ export default function VoicePage() {
         handleError?: () => void;
     }>({});
     const { toast } = useToast();
+
+    // Set initial sidebar state based on device type
+    useEffect(() => {
+        setIsSidebarOpen(!isMobileHook); // Mobile: false, Desktop: true
+    }, [isMobileHook]);
 
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
@@ -196,7 +204,7 @@ export default function VoicePage() {
         <div className="min-h-screen bg-[#ffffff] flex flex-col">
             <VoissHeader onMenuToggle={toggleSidebar} />
 
-            <div className="flex flex-1 relative">
+            <div className="flex flex-1">
                 <VoissPanel isOpen={isSidebarOpen} onToggle={toggleSidebar} />
 
                 <div className={`flex-1 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'ml-0 md:ml-64 lg:ml-64' : 'ml-0'} flex flex-col min-h-0 max-w-full overflow-hidden`}>

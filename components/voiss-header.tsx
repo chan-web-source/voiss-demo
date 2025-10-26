@@ -20,12 +20,12 @@ export function VoissHeader({ onMenuToggle }: VoissHeaderProps) {
                 <div className="flex items-center justify-between h-16">
                     {/* Left side - Menu Button and Logo */}
                     <div className="flex items-center space-x-4">
-                        {/* Mobile Menu Button */}
+                        {/* Menu Button */}
                         <Button
                             variant="ghost"
                             size="sm"
                             onClick={onMenuToggle}
-                            className="text-white hover:text-gray-200 hover:bg-white/10 lg:hidden"
+                            className="text-white hover:text-gray-200 hover:bg-white/10"
                         >
                             <Menu className="h-5 w-5" />
                         </Button>

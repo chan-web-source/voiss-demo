@@ -1,11 +1,19 @@
 "use client";
 import { VoissHeader } from "@/components/voiss-header";
 import { VoissPanel } from "@/components/voiss-panel";
-import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { useState, useEffect } from "react";
 
 export default function ChatPage() {
- const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+ const isMobileHook = useIsMobile();
+
+ const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Default to closed, will be updated in useEffect
  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+ // Set initial sidebar state based on device type
+ useEffect(() => {
+  setIsSidebarOpen(!isMobileHook); // Mobile: false, Desktop: true
+ }, [isMobileHook]);
  return (
   <div className="min-h-screen bg-[#ffffff] flex flex-col">
    <VoissHeader onMenuToggle={toggleSidebar} />

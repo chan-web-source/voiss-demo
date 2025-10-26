@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { mockAudioData } from "../../../lib/mock";
 
 interface AudioRecordingsTableProps {
  rows: any[];
@@ -69,6 +71,60 @@ export function AudioRecordingsTable({
      ))}
     </tbody>
    </table>
+  </div>
+ );
+}
+
+function formatDuration(seconds: number) {
+ const minutes = Math.floor(seconds / 60);
+ const remainingSeconds = Math.floor(seconds % 60);
+ return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+export default function VoiceTablePage() {
+ const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+ const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
+
+ const onPlayAudio = (audioPath: string, audioId: string) => {
+  if (playingAudio === audioId) {
+   // Stop current audio
+   if (audioElement) {
+    audioElement.pause();
+    audioElement.currentTime = 0;
+   }
+   setPlayingAudio(null);
+   setAudioElement(null);
+  } else {
+   // Stop any currently playing audio
+   if (audioElement) {
+    audioElement.pause();
+    audioElement.currentTime = 0;
+   }
+
+   // Start new audio
+   const audio = new Audio(audioPath);
+   audio.play();
+   setAudioElement(audio);
+   setPlayingAudio(audioId);
+
+   audio.onended = () => {
+    setPlayingAudio(null);
+    setAudioElement(null);
+   };
+  }
+ };
+
+ return (
+  <div className="min-h-screen bg-gray-50">
+   <div className="container mx-auto px-4 py-8">
+    <h1 className="text-3xl font-bold text-gray-900 mb-8">Voice Recordings Table</h1>
+    <AudioRecordingsTable
+     rows={mockAudioData.data}
+     playingAudio={playingAudio}
+     onPlayAudio={onPlayAudio}
+     formatDuration={formatDuration}
+    />
+   </div>
   </div>
  );
 }
