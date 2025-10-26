@@ -21,7 +21,7 @@ export function VoissFooter() {
                         </Link>
                     </div>
                     <p className="text-gray-600 text-sm mb-4">
-                        © 2025 Voiss. All rights reserved.
+                        By Lucky Chan
                     </p>
                 </div>
             </div>

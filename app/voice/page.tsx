@@ -77,7 +77,7 @@ export default function VoicePage() {
                 title: "Upload failed",
                 description: "Please only upload MP3 format audio files",
                 variant: "destructive",
-                duration: 3000,
+                duration: 4000,
             });
             return;
         }
@@ -214,7 +214,6 @@ export default function VoicePage() {
                                 <div>
                                     <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Audio Recordings (Demo purpose)</h1>
                                     <p className="text-sm text-gray-600 mt-1">Recent audio recordings</p>
-                                    <p className="text-sm text-gray-600">( By: Lucky Chan )</p>
                                 </div>
                                 <div className="flex items-center gap-3 mt-4 sm:mt-0">
                                     <Button
@@ -245,8 +244,6 @@ export default function VoicePage() {
                                         <div>
                                             <h3 className="text-lg font-semibold text-gray-900">Audio Recordings</h3>
                                             <p className="text-sm text-gray-600">Recent audio recordings and voice messages</p>
-                                            <p className="text-sm text-gray-600">( By: Lucky Chan )</p>
-
                                         </div>
                                         <div className="flex items-center mt-4 sm:mt-0">
                                             {playingAudio !== null && (
