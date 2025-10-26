@@ -77,7 +77,7 @@ export default function VoicePage() {
                 title: "Upload failed",
                 description: "Please only upload MP3 format audio files",
                 variant: "destructive",
-                duration: 3000,
+                duration: 4000,
             });
             return;
         }
@@ -86,12 +86,12 @@ export default function VoicePage() {
             const duration = await getAudioDuration(file);
 
             // Check if duration exceeds 30 seconds
-            if (duration > 90) {
+            if (duration > 30) {
                 toast({
                     title: "Upload failed",
                     description: "Audio file cannot exceed 30 seconds, please select a shorter audio file",
                     variant: "destructive",
-                    duration: 9000,
+                    duration: 4000,
                 });
                 return;
             }
