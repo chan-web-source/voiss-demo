@@ -9,11 +9,13 @@ import { VoissFooter } from "@/components/voiss-footer";
 import { Button } from "@/components/ui/button";
 import { Upload } from "lucide-react";
 import { mockAudioData } from "../../lib/mock";
-import { AudioVisualizer } from "@/components/audio-visualizer";
+// import { AudioVisualizer } from "@/components/audio-visualizer";
 import { useToast } from "@/hooks/use-toast";
 import { AudioRecordingsTable } from "./table/page";
 import { useIsMobile } from "@/hooks/use-mobile";
-
+import { SiriVisualizer } from "@/components/siri-visualizer";
+import SiriRecorder from "@/components/siri-recorder";
+import SiriRecorderMobile from "@/components/siri-recorder-mobile";
 // Audio file paths - using public URLs instead of imports
 const goodJobAudio = '/good-job.mp3';
 const youMissedAudio = '/you-missed.mp3';
@@ -237,7 +239,13 @@ export default function VoicePage() {
                     </div>
 
                     <div className="bg-white flex-1 overflow-hidden">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+
+                        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                            <div className="pb-4">
+                                {isMobileHook ? <SiriRecorderMobile /> : <SiriRecorder />}
+                            </div>
+
                             <div className="bg-white rounded-lg border border-gray-200 shadow-lg shadow-gray-200/50 overflow-hidden">
                                 <div className="px-6 py-4">
                                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
@@ -247,7 +255,7 @@ export default function VoicePage() {
                                         </div>
                                         <div className="flex items-center mt-4 sm:mt-0">
                                             {playingAudio !== null && (
-                                                <AudioVisualizer
+                                                <SiriVisualizer
                                                     mp3Url={rows.find(row => row.id.toString() === playingAudio)?.voicePath || ''}
                                                     isPlaying={playingAudio !== null}
                                                     audioElement={currentAudioRef.current}
