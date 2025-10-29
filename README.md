@@ -23,7 +23,7 @@ A modern audio management and playback application built with Next.js, React, an
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd the-flex
+   cd voiss-demo
    ```
 
 2. **Install dependencies**
