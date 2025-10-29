@@ -1,6 +1,6 @@
 # Voiss AI - Audio Playback Demo
 
-A modern audio management and playback application built with Next.js, React, and TypeScript. This demo showcases voice AI capabilities with audio upload, playback, and visualization features.
+A modern audio management and playback application built with Next.js, React, and TypeScript. This demo showcases voice AI capabilities with audio upload, playback, and visualization features, voice recording with siri like animation effect.
 
 ## Website
  https://voiss-demo.onrender.com/voice
