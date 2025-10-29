@@ -3,7 +3,7 @@
 A modern audio management and playback application built with Next.js, React, and TypeScript. This demo showcases voice AI capabilities with audio upload, playback, and visualization features.
 
 ## Website
- https://admin-portal-flex.onrender.com/
+ https://voiss-demo.onrender.com/voice
 
 ## Features
 
